@@ -18,8 +18,7 @@ function getComputerChoice() {
 
 // Exibir ao usuário um prompt para que escolha pedra, papel ou tesoura
 
-let humanScore = 0
-let computerScore = 0
+
 
 function getHumanChoice() {
 
@@ -36,29 +35,47 @@ function playRound(humanChoice, computerChoice) {
     
     if ( computerChoice === "pedra" && humanChoice == "tesoura") {
         console.log(`PUTZ PERDEU... PEDRA GANHA DE TESOURA...`);
-        computerScore += 1
+        return "computer"
     } else if ( computerChoice === "papel" && humanChoice == "pedra") {
         console.log(`PUTZ PERDEU... PAPEL GANHA DE PEDRA...`);
-        computerScore += 1
+        return "computer"
     } else if ( computerChoice === "tesoura" && humanChoice == "papel") {
         console.log(`PUTZ PERDEU... TESOURA GANHA DE PAPEL...`)
-        computerScore += 1
+        return "computer"
     } else if ( computerChoice === "pedra" && humanChoice == "papel") {
         console.log(`AEEE GANHOU!!!! PAPEL GANHA DE PEDRA!!!`);
-        humanScore += 1
+        return "human"
     } else if ( computerChoice === "papel" && humanChoice == "tesoura") {
         console.log(`AEEE GANHOU!!!! TESOURA GANHA DE PAPEL!!!`);
-        humanScore += 1
+        return "human"
     } else if ( computerChoice === "tesoura" && humanChoice == "pedra") {
         console.log(`AEEE GANHOU!!!! PEDRA GANHA DE TESOURA!!!`);
-        humanScore += 1
+        return "human"
     } else {
         console.log(`Empatou, ixe... ${humanChoice} e ${computerChoice} são iguais...`)
+        return "tie"
     }
-
-    console.log(`Tabela:\nVocê: ${humanScore} pontos\nComputador: ${computerScore} pontos`)
-
 
 }
 
-playRound(getHumanChoice(), getComputerChoice())
+// Inicia um jogo com 5 rounds e cuida da pontuação e declara o vencedor 
+function playGame() {   
+
+    let humanScore = 0
+    let computerScore = 0
+
+    for (let i = 1; i <= 5; i++) {
+        let result = playRound(getHumanChoice(), getComputerChoice())
+
+        if (result === "human") {
+            humanScore += 1;
+        } else if (result === "computer") {
+            computerScore += 1;
+        }
+
+        console.log(`Tabela:\nVocê: ${humanScore} pontos\nComputador: ${computerScore} pontos`)
+    }
+}
+
+playGame()
+
