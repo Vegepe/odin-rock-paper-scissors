@@ -44,16 +44,16 @@ function playRound(humanChoice, computerChoice) {
         console.log(`PUTZ PERDEU... TESOURA GANHA DE PAPEL...`)
         computerScore += 1
     } else if ( computerChoice === "pedra" && humanChoice == "papel") {
-        console.log(`AEEE GANHOU!!!!`);
+        console.log(`AEEE GANHOU!!!! PAPEL GANHA DE PEDRA!!!`);
         humanScore += 1
     } else if ( computerChoice === "papel" && humanChoice == "tesoura") {
-        console.log(`AEEE GANHOU!!!!`);
+        console.log(`AEEE GANHOU!!!! TESOURA GANHA DE PAPEL!!!`);
         humanScore += 1
     } else if ( computerChoice === "tesoura" && humanChoice == "pedra") {
-        console.log(`AEEE GANHOU!!!!`);
+        console.log(`AEEE GANHOU!!!! PEDRA GANHA DE TESOURA!!!`);
         humanScore += 1
     } else {
-        console.log("Empatou, ixe.")
+        console.log(`Empatou, ixe... ${humanChoice} e ${computerChoice} são iguais...`)
     }
 
     console.log(`Tabela:\nVocê: ${humanScore} pontos\nComputador: ${computerScore} pontos`)
@@ -61,5 +61,4 @@ function playRound(humanChoice, computerChoice) {
 
 }
 
-getHumanChoice()
-console.log(getComputerChoice())
+playRound(getHumanChoice(), getComputerChoice())
