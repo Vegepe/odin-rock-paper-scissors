@@ -75,6 +75,14 @@ function playGame() {
 
         console.log(`Tabela:\nVocê: ${humanScore} pontos\nComputador: ${computerScore} pontos`)
     }
+
+    if (humanScore > computerScore) {
+        console.log("AEEEE!! GANHOU O JOGO (perdi)")
+    } else if (humanScore < computerScore) {
+        console.log("Aff, perdeu o jogo (perdi)")
+    } else {
+        console.log("Empateou...")
+    }
 }
 
 playGame()
